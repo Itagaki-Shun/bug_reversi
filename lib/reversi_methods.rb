@@ -35,7 +35,7 @@ module ReversiMethods
   def copy_board(to_board, from_board)
     from_board.each_with_index do |cols, row|
       cols.each_with_index do |cell, col|
-        to_board[row][col] = cell
+        to_board[col][row] = cell
       end
     end
   end
