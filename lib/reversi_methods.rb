@@ -35,7 +35,7 @@ module ReversiMethods
   def copy_board(to_board, from_board)
     from_board.each_with_index do |cols, row|
       cols.each_with_index do |cell, col|
-        to_board[col][row] = cell
+        to_board[row][col] = cell
       end
     end
   end
@@ -47,7 +47,7 @@ module ReversiMethods
 
     # コピーした盤面にて石の配置を試みて、成功すれば反映する
     copied_board = Marshal.load(Marshal.dump(board))
-    copied_board[pos.col][pos.row] = stone_color
+    copied_board[pos.row][pos.col] = stone_color
 
     turn_succeed = false
     Position::DIRECTIONS.each do |direction|
